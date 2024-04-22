@@ -16,10 +16,13 @@
     "author": "Kelvin Isievwore",
     "license": "ISC",
     "dependencies": {
+        "@alchemy/aa-core": "^3.8.2-alpha.1",
+        "@biconomy/core-types": "^3.1.1",
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "ethers": "^5.7.2",
         "express": "^4.18.3",
+        "viem": "^2.9.21",
         "winston": "^3.12.0",
         "winston-daily-rotate-file": "^5.0.0"
     },
