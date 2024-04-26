@@ -1,7 +1,5 @@
 import { getContract, PublicClient } from 'viem';
-import { UserOperation } from '@biconomy/core-types';
-// import type { UserOperationStruct } from "@alchemy/aa-core";
-// import { UserOperation } from '../utils/types';
+import { UserOperation } from '../utils/types';
 
 import logger from '../utils/logger';
 import { entryPointABI } from '../utils/abi';
@@ -20,14 +18,14 @@ export class EntryPoint {
         });
     }
 
-    async handleOps(userOps: UserOperation): Promise<string> {
+    async handleOps(userOps: UserOperation[]): Promise<string> {
         const account = alternateEOA();
         try {
             const { request } = await this.publicClient.simulateContract({
                 address: entryPointAddress,
                 abi: entryPointABI,
                 functionName: 'handleOps',
-                args: [userOps],
+                args: [userOps, bundlerAddress],
                 account,
             });
 

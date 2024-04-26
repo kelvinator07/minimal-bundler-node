@@ -1,11 +1,14 @@
 import { createPublicClient, createWalletClient, http, Address, PrivateKeyAccount } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 import { mainnet, sepolia } from 'viem/chains';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const entryPointAddress = process.env.ENTRY_POINT_CONTRACT_ADDRESS as Address;
+export const bundlerAddress = process.env.BUNDLER_ADDRESS as Address;
 
-export const account1 = process.env.PRIVATE_KEY1 as Address;
-export const account2 = process.env.PRIVATE_KEY2 as Address;
+const account1 = process.env.PRIVATE_KEY1 as Address;
+const account2 = process.env.PRIVATE_KEY2 as Address;
 
 const network = process.env.NETWORK === 'testnet' ? sepolia : mainnet
 

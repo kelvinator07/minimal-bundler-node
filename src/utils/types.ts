@@ -1,4 +1,4 @@
-export type HandleOpsInput = {
+export type UserOperation = {
     sender: `0x${string}`;
     nonce: bigint;
     initCode: `0x${string}`;
@@ -10,9 +10,4 @@ export type HandleOpsInput = {
     maxPriorityFeePerGas: bigint;
     paymasterAndData: `0x${string}`;
     signature: `0x${string}`;
-};
-
-export type UserOperation = {
-    ops: HandleOpsInput[];
-    beneficiary: string;
 };

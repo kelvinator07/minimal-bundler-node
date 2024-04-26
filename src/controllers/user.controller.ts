@@ -28,8 +28,7 @@ export default class UserController {
                 );
                 return;
             }
-            const { userOperation } = params;
-            const transactionHash = await executeUserOperation(userOperation);
+            const transactionHash = await executeUserOperation(params);
             const response = { jsonrpc: '2.0', id: Date.now(), result: transactionHash };
             res.status(STATUSCODE.OK).json(successResponse(STATUS.SUCCESS, response));
         } catch (err) {
